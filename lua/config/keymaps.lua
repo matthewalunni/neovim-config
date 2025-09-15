@@ -33,6 +33,8 @@ map("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 map("n", "<leader>fr", ":Telescope oldfiles<CR>", opts)
 map("n", "<leader>fs", ":Telescope current_buffer_fuzzy_find<CR>", opts)
 map("n", "<leader>fb", ":Telescope buffers<CR>", opts)
+map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", { noremap = true, silent = true })
+map("n", "<leader>c", ":Telescope commands<CR>", { noremap = true, silent = true })
 map("n", "<leader><tab>", ":b#<CR>", opts)
 map("n", "]b", ":bnext<CR>", opts)
 map("n", "[b", ":bprevious<CR>", opts)
@@ -45,8 +47,6 @@ map("n", "<leader>bo", ":bufdo bd | e#<CR>", opts)
 map("n", "/", "/\\v", opts) -- smart regex search
 map("n", "n", "nzz", opts)
 map("n", "N", "Nzz", opts)
-map("n", "<leader>/", ":Telescope live_grep<CR>", opts)
-map("n", "<leader>sg", ":Telescope grep_string<CR>", opts)
 map("n", "<leader>sh", ":Telescope help_tags<CR>", opts)
 map("n", "<leader>sk", ":Telescope keymaps<CR>", opts)
 map("n", "<leader>sr", ":Telescope resume<CR>", opts)
@@ -122,3 +122,30 @@ map("n", "<C-space>", ":Copilot#Complete()<CR>", opts)
 -- ========================
 -- Example: text object mappings are built-in in Vim, no extra mapping needed
 -- This section could be expanded with custom text objects if desired
+--
+-- ========================
+-- Octo commands in Telescope
+-- ========================
+--
+-- Open Issues (search through GitHub issues)
+-- Keymaps for Octo commands
+map("n", "<leader>oi", ":Telescope octo issues<CR>", { noremap = true, silent = true })
+map("n", "<leader>op", ":Telescope octo prs<CR>", { noremap = true, silent = true })
+map("n", "<leader>or", ":Telescope octo review<CR>", { noremap = true, silent = true })
+
+-- Pull request actions
+map("n", "<leader>oc", ":Octo checkout<CR>", { noremap = true, silent = true })
+map("n", "<leader>om", ":Octo merge<CR>", { noremap = true, silent = true })
+map("n", "<leader>or", ":Octo rebase<CR>", { noremap = true, silent = true })
+map("n", "<leader>ocm", ":Octo comment<CR>", { noremap = true, silent = true })
+map("n", "<leader>og", ":Octo browse<CR>", { noremap = true, silent = true })
+
+-- Issue actions
+map("n", "<leader>oi", ":Octo issue view<CR>", { noremap = true, silent = true })
+map("n", "<leader>ni", ":Octo issue new<CR>", { noremap = true, silent = true })
+map("n", "<leader>iocm", ":Octo issue comment<CR>", { noremap = true, silent = true })
+map("n", "<leader>ioc", ":Octo issue close<CR>", { noremap = true, silent = true })
+-- Notifications and Repo actions
+map("n", "<leader>on", ":Telescope octo notifications<CR>", { noremap = true, silent = true })
+map("n", "<leader>ogr", ":Octo repo browse<CR>", { noremap = true, silent = true })
+map("n", "<leader>o", ":Octo<CR>", { desc = "Octo" })
