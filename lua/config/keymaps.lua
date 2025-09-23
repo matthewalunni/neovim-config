@@ -149,3 +149,16 @@ map("n", "<leader>ioc", ":Octo issue close<CR>", { noremap = true, silent = true
 map("n", "<leader>on", ":Telescope octo notifications<CR>", { noremap = true, silent = true })
 map("n", "<leader>ogr", ":Octo repo browse<CR>", { noremap = true, silent = true })
 map("n", "<leader>o", ":Octo<CR>", { desc = "Octo" })
+
+-- =======================
+-- File Explorer
+-- =======================
+map("n", "<leader>e", function()
+  require("telescope").extensions.file_browser.file_browser({
+    hidden = true,
+    grouped = true,
+    respect_gitignore = false,
+    path = "%:p:h", -- Start in current buffer's directory
+    select_buffer = true, -- Keep context with the buffer
+  })
+end, { desc = "Open File Browser (hidden files visible)" })
